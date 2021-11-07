@@ -1,0 +1,40 @@
+<div class= "container px-5 px-sm-0">
+  <div class="row">
+<div class="col-md-3">
+  </p>
+   <%#= attachment_image_tag @user, :profile_image, fallback: "no-image.png" %>
+  <%= render "users",user: @user, post: @post %>
+</div>
+
+<div class= "col-md-8 offset-md-1">
+  <h2>投稿</h2>
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th></th>
+        <th>タイトル</th>
+        <th>投稿画像</th>
+        <th>説明</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post|  %>
+      <tr>
+      <td>
+      <%= link_to user_path(@user) do %>
+      <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg", size: "300x250" %>
+      <% end %>
+      </td>
+      <td><%= link_to post.title, post_path(post) %>
+      </td>
+      <td><%= post.image %></td>
+      <td><%= post.explanation %></td>
+      </tr>
+      <% end %>
+  </tbody>
+  </table>
+</div>
+ </div>
+</div>

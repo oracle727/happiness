@@ -29,3 +29,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#問い合わせ関連
+/.env
+.env
+
+vendor
