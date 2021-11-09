@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @post = Post.new
     @posts = @user.posts
+    @post_id = Post.find(params[:id])
     @users = User.where.not(id: current_user.id)
      # binding.pry
   end

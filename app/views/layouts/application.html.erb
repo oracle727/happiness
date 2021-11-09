@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Memories</title>
+    <title>ハピネス</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-1/css/reset.css">
+　　<link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-1/css/5-1.css">
   </head>
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
         <div class="container">
       <li>
-        <i class="fas fa-book-medical"></i>"><strong><%= link_to "トップページ", root_path %></strong></i>
+        <i class="fas fa-child"></i><strong><%= link_to "トップページ", root_path %></strong></i>
       </li>
       <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
       <ul class="navbar-nav ml-auto">
@@ -31,7 +33,17 @@
      </li>
 
       <li class=Posts>
-        <i class="far fa-store-alt"><%= link_to '投稿', posts_path %></i>
+        <i class= "fab fa-angellist"></i><%= link_to '投稿', posts_path %></i>
+      </li>
+
+      <li class=about>
+       <i class="fas fa-link"> <%= link_to "サイト説明", home_about_path %></i>
+      </li>
+
+     <li class=contact>
+     <i class="fas fa-envelope"> <%= link_to "お問い合わせ",  new_contact_path %></i>
+     </li>
+
       </li>
 
       <li class=logout>
@@ -59,14 +71,6 @@
     <% end %>
     </header>
     <%= yield %>
-
-      <div class="container mt-5">
-        <div class="row">
-          <div class="mx-auto">
-        <footer>CopyRight Since2021</footer>
-          </div>
-        </div>
-      </div>
   </body>
   </html>
 

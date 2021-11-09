@@ -1,1 +1,1 @@
-$(".comment").html("<%= j(render "comments/comment", post: @post) %>");
+document.querySelector(".comments").innerHTML = "<%= j(render 'comments/comment', comments: @comments) %>";

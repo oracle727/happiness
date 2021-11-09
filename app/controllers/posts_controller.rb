@@ -4,16 +4,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    @posts = Post.all
     @user = current_user
+    @posts = Post.all
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     # binding.pry
     if @post.save
-    redirect_to post_path(@post)
-    flash[:notice] = "投稿しました"
+      redirect_to post_path(@post)
+      flash[:notice] = "投稿しました"
     else
-    render:"index"
+      render:"index"
     end
   end
 
@@ -64,6 +64,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-      params.require(:post).permit(:title, :explanation, :post_images_images: [])
+      params.require(:post).permit(:explanation, post_images_images: [] )
   end
 end

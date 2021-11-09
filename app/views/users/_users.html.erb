@@ -14,7 +14,6 @@
       <th>ニックネーム</th>
       <th><%= user.name %></th>
     </tr>
-
     <tr>
       <th>自己紹介</th>
       <th><%= user.introduction %></th>
@@ -43,11 +42,9 @@
   <% end %>
 
 <h1>新規投稿</h1>
-<%= form_with model:post, local:true do |f| %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
+<%= form_with model: post, local: true do |f| %>
   <h4>画像</h4>
- <%= f.attachment_field :image %>
+ <%= f.attachment_field :post_images_images, multiple: true %>
   <h4>説明</h4>
   <%= f.text_area :explanation %>
   <%= f.submit '投稿する' %>

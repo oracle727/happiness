@@ -9,31 +9,31 @@
 <table class= "table table-hover table-inverse">
   <thead>
     <tr>
-    <th>プロフィール写真</th>
+    <th>ユーザー</th>
     <th>ニックネーム</th>
     <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
-    　<tr>
+      <tr>
         <td>
-        　<%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size: "300x250" %>
+          <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
         </td>
         <td><%= user.name %></td>
         <td><p>フォロー数<%= user.followings.count %></p></td>
         <td><p>フォロワー数<%= user.followers.count %></p></td>
         <td>
           <% if user != current_user %>
-          　<% if user.is_follower_by?(current_user) %>
+            <% if user.is_follower_by?(current_user) %>
               <%= link_to 'フォロー外す', user_relationships_path(user.id), method: :delete %>
             <% else%>
               <%= link_to 'フォローする', user_relationships_path(user.id), method: :post %>
             <% end %>
           <% end %>
-  　　  　</td>
-  　　　　　<td><%= link_to "Show", user_path(user) %></td>
-　　　</tr>
+        </td>
+        <td><%= link_to "Show", user_path(user) %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>

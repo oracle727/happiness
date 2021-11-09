@@ -10,33 +10,35 @@
   <thead>
     <tr>
       <th></th>
-    <th>タイトル</th>
     <th>画像</th>
-    <th>説明</th>
-    <th colspan="4"></th>
+    <th>内容</th>
+    <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
      <tr>
       <% @posts.each do |post| %>
       <td>
-      <%= link_to user_path(post.user) do %>
-      <%=  attachment_image_tag post.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size: "300x250" %>
-       <% end %>
+        <%= link_to post_path(post.id) do %>
+        <%=  attachment_image_tag post.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size: "300x250", multiple: true %>
+        <% end %>
       </td>
-      <td><%= link_to post.title, post_path(post.id) %></td>
-      <td><%= post.image %></td>
+      <td><% @post.post_images.each do |image| %>
+      <%= attachment_image_tag image, :image, :fill, 300, 300 %>
+          <% end %>
+      </td>
       <td><%= post.explanation %></td>
-      <td class=<%= "likes_buttons_"+ post.id.to_s %>>
-　　　<%= render "likes/like", post: post %>
-　　  </td>
+      <td id ="like_<%= post.id %>">
+  <%= render "likes/like", post: post %>
+     </td>
   </td>
       <td><p><%= link_to "#{post.comments.count} コメント",  post_path(post.id) %></p></td>
      </tr>
-       <% end %>
+      <% end %>
   </tbody>
 </table>
 </div>
 </div>
 </div>
 </main>
+
