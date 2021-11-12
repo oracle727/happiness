@@ -10,13 +10,14 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-    　<tr>
+     <tr>
         <td>
-        　<%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size: "300x250" %>
+         <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "300x250" %>
         </td>
         <td><%= user.name %></td>
-        <%= link_to "退会させる ", withdraw_path(user.id), method: :delete, class: "btn btn-danger" %>
-        <% end %>
+        <td><%= link_to "退会させる ", withdraw_path(user.id), method: :delete, data:{ confirm: '本当に消しますか？' }, class: "btn btn-danger" %></td>
+    </tr>
+    <% end %>
   </tbody>
 </table>
 </div>

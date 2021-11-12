@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_08_121224) do
+ActiveRecord::Schema.define(version: 2021_11_10_083424) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "post_id"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2021_11_08_121224) do
   create_table "contacts", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.string "phone_number", null: false
     t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

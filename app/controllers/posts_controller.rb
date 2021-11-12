@@ -18,9 +18,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @user = current_user
     @posts = Post.all
-    @post = Post.new
+    @new_post = Post.new
   end
 
   def show

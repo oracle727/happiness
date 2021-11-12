@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @post = Post.new
     @posts = @user.posts
-    @post_id = Post.find(params[:id])
+    # @post_id = Post.find(user_id])
     @users = User.where.not(id: current_user.id)
      # binding.pry
   end
@@ -58,7 +58,6 @@ class UsersController < ApplicationController
       @post = Post.new
       @users = User.is_admin.all
       render action: :index
-
     else
     @user = User.find(params[:id])
     @user.destroy
@@ -67,17 +66,13 @@ class UsersController < ApplicationController
   end
 
   def withdraw
-    if current_user.id != params[:id].to_i
-      @user = current_user
-      @posts = Post.all
-      @post = Post.new
-      @users = User.is_admin.all
-      render action: :index
-
+    if current_user.is_admin
+      @user = User.find(params[:id])
+      @user.destroy
+      redirect_to users_path
     else
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path
+      current_user.destroy
+      render "homes/top"
     end
   end
 
@@ -87,11 +82,10 @@ class UsersController < ApplicationController
   end
 
   def admin
-    @user = User.find(params[:id])
-    @users =  User.all
     if current_user.is_admin
+       @users =  User.all
     else
-      redirect_to root_path
+     redirect_to root_path
     end
   end
 

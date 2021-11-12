@@ -5,9 +5,9 @@
     <%= message %>
   <% end %>
 <% end %>
-
-<%= attachment_image_tag user, :profile_image,fallback:"no_image.jpg", size: "300x250" %>
-
+<div class="profile_image">
+<%= attachment_image_tag user, :profile_image,fallback: "no_image.jpg" %>
+</div>
 <table class="table">
   <tbody>
     <tr>

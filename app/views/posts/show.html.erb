@@ -5,48 +5,56 @@
     </div>
     <div class = "col-md-8 offset-md-1">
       <h2>投稿詳細</h2>
+      <div>
+        <div>
       <table class="table">
         <tbody>
           <tr>
-            <td>
+            <td class="image-box">
+              <div>
               <%= link_to user_path(@post.user_id) do %>
-                <%= attachment_image_tag @user, :profile_image, :fill, 100, 50, fallback:"no_image.jpg", size: "300x250" %>
+                <%= attachment_image_tag @user, :profile_image, fallback:"no_image.jpg" %>
+                <br>
+                <%= @user.name %>
               <% end %>
-            </td>
-            <td>
+              </div>
+              <div>
               <% if @post.post_images.present? %>
                 <% @post.post_images.each do |image| %>
-                  <%= attachment_image_tag image, :image, :fill, 500, 500 %>
+                  <div>
+                  <%= attachment_image_tag image, :image, fallback: "no_image.jpg" %>
+                  </div>
                 <% end %>
-              <% else %>
-                <%= image_tag 'no_image.jpg', size: '200x200' %>
-              <% end %>
-            </td>
-            <td>
-              <%= @post.explanation %>
-            </td>
-            <td id ="like_<%= @post.id %>">
+                <% else %>
+                <%= image_tag "no_image.jpg" %>
+                <% end %>
+              </div>
+              <p><%= @post.explanation %></p>
+            <div id ="like_<%= @post.id %>">
               <%= render "likes/like", post: @post %>
-            </td>
-            <td>
+            </div>
+            <br>
+            <div>
               <% if @post.user == current_user %>
-                <%= link_to "Edit", edit_post_path(@post),class:"btn btn-success btn-sm btn-block mb-3" %>
+                <%= link_to "Edit", edit_post_path(@post),class: "btn btn-success btn-sm btn-block mb-3" %>
               <% end %>
-            </td>
-            <td>
+
               <% if @post.user == current_user %>
                 <%= link_to "Destroy", post_path, method: :delete, data:{ confirm: '本当に消しますか？' },class:"btn btn-danger btn-sm btn-block mb-3" %>
               <% end %>
+            </div>
             </td>
           </tr>
         </tbody>
       </table>
-      <div class = "col-md-8 offset-md-1">
+      </div>
+        <div>
         <table class="table">
           <tbody class="comments">
-        <%= render "comments/comment", comments: @comments %>
+            <%= render "comments/comment", comments: @comments %>
           </tbody>
          </table>
+      </div>
       </div>
       <div>
         <%= form_with(model: [@post,@comment], remote: true) do |f| %>
@@ -55,4 +63,5 @@
         <% end %>
       </div>
   </div>
+ </div>
  </div>

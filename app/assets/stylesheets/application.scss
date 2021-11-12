@@ -31,6 +31,12 @@ body{
       100% {background:#ffe6e1;}/*変化させたい色*/
  }
 
- .fas fa-child{
- list-style: none;
+ .fab {
+   font-weight: 900;
  }
+
+ .profile_image > img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}

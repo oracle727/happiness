@@ -16,24 +16,24 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
         <div class="container">
-      <li>
+      <h1>
         <i class="fas fa-child"></i><strong><%= link_to "トップページ", root_path %></strong></i>
-      </li>
+      </h1>
       <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
       <ul class="navbar-nav ml-auto">
 
      <% if user_signed_in? %>
 
       <li class=Home>
-        <i class="fas fa-home"><%= link_to "ホーム",user_path(current_user.id) %></i>
+        <i class="fas fa-home"><%= link_to "自分の投稿",user_path(current_user.id) %></i>
       </li>
 
-     <li class=user>
-      <i class="fas fa-users"><%= link_to 'ユーザー', users_path %></i>
-     </li>
-
       <li class=Posts>
-        <i class= "fab fa-angellist"></i><%= link_to '投稿', posts_path %></i>
+        <i class= "fab fa-angellist"><%= link_to 'みんなの投稿', posts_path %></i>
+      </li>
+
+      <li class=user>
+        <i class="fas fa-users"><%= link_to 'ユーザー', users_path %></i>
       </li>
 
       <li class=about>
@@ -41,15 +41,12 @@
       </li>
 
      <li class=contact>
-     <i class="fas fa-envelope"> <%= link_to "お問い合わせ",  new_contact_path %></i>
+       <i class="fas fa-envelope"> <%= link_to "お問い合わせ",  new_contact_path %></i>
      </li>
-
-      </li>
 
       <li class=logout>
         <i class="fas fa-sign-out-alt"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></i>
       </li>
-
     <% else %>
 
      <li class=Home>
