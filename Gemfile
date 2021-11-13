@@ -69,8 +69,9 @@ gem 'jquery-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'pry-byebug'
-gem 'dotenv-rails'
 gem 'rails-i18n'
-# gem 'rails_admin', '~> 2.0'
-# gem 'cancancan'
 
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
