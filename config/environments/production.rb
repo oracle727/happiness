@@ -94,9 +94,9 @@ Rails.application.configure do
 
   #deviseが認証用のURLなどを生成するのに必要になるらしい
   config.action_mailer.default_url_options = { :host => 'http://ipアドレス' }
-  #送信方法を指定（この他に:sendmail/:file/:testなどがあります)
+  #送信方法を指定（この他に:sendmail/:file/:testなどがあるる)
   config.action_mailer.delivery_method = :smtp
-  #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
+  #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行うう
   config.action_mailer.smtp_settings = {
     #gmail利用時はaddress,domain,portは下記で固定
     address: "smtp.gmail.com",
@@ -104,7 +104,6 @@ Rails.application.configure do
     port:587,
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD'],
-    #パスワードをBase64でエンコード
     authentication: :login
   }
 end

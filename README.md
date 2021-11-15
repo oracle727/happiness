@@ -1,24 +1,33 @@
-# README
+#ハピネス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+最近あった　「嬉しかったこと」　を投稿し、各ユーザーが閲覧、コメント、
+いいね　フォローできるサイトです。
 
-Things you may want to cover:
 
-* Ruby version
+### サイトテーマ
+ポジティブな影響を伝播させることがテーマです。
 
-* System dependencies
+### テーマを選んだ理由
+ポジティブなものだけに触れて明るい気持ちになれるサイトがあればいいと思い選びました。
+世の中にSNSはたくさん存在しますが、テーマが存在しないかつ、ユーザーが多いということがあり、ポジティブな投稿だけではなく、
+ネガティブな投稿や、コメント欄などで喧嘩する場面を見てしまったり、マイナスな気持ちになることがあるので、ポジティブなものだけに触れることができるサービスを利用してもらい、
+楽しい気持ちで生活する一助になればいいと思います。
 
-* Configuration
+### ターゲットユーザ
+嬉しかったことを投稿したい人、ネガティブなものを見たくない人。
 
-* Database creation
+### 主な利用シーン
+嬉しいことがあったときや、いいことがなくて他の人のちょっとしたポジティブなことを知りたいときにご利用ください。
 
-* Database initialization
+## 設計書
 
-* How to run the test suite
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1jbpftdyECa1V2xqX-EA1sS7ZgKr5Jv52bh6ys4tUvS8/edit#gid=0
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
