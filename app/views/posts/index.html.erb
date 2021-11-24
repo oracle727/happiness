@@ -32,9 +32,8 @@
       </td>
       <td><%= post.explanation %></td>
       <td id ="like_<%= post.id %>">
-  <%= render "likes/like", post: post %>
+      <%= render "likes/like", post: post %>
       </td>
-  </td>
       <td><p><%= link_to "#{post.comments.count} コメント",  post_path(post.id) %></p></td>
      </tr>
       <% end %>

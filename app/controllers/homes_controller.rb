@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
 
    def top
-      @user = current_user #必要なのか不明
+     @user = current_user
    end
 
    def about
