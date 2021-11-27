@@ -8,8 +8,8 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    # binding.pry
     if @post.save
+      binding.pry
       redirect_to post_path(@post)
       flash[:notice] = "投稿しました"
     else
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     @user = @post.user
     @myuser = current_user
     @comment = Comment.new
-    @comments = Comment.all
+    @comments = @post.comments
   end
 
   def edit
@@ -59,7 +59,6 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
   end
-
 
   private
   def post_params
